@@ -1,0 +1,164 @@
+!DOCTYPE html
+html lang=fr
+head
+    meta charset=UTF-8
+    meta name=viewport content=width=device-width, initial-scale=1.0
+    titleAnalyse DCF Professionnelletitle
+    link rel=stylesheet href=httpscdnjs.cloudflare.comajaxlibsfont-awesome6.4.0cssall.min.css
+    link href=httpsfonts.googleapis.comcss2family=Montserratwght@300;400;600;700&display=swap rel=stylesheet
+    link rel=stylesheet href=style.css
+    script src=httpscdn.jsdelivr.netnpmchart.jsscript
+    script src=httpscdn.jsdelivr.netnpmyfinance@1.0.0distyfinance.min.jsscript
+head
+body
+    header class=finance-header
+        div class=container
+            h1i class=fas fa-chart-linei DCF Analyzer Proh1
+            pOutil professionnel de valorisation d'entreprisesp
+        div
+    header
+
+    main class=container
+        section class=input-section
+            div class=card
+                h2i class=fas fa-cogi Paramètres d'analyseh2
+                div class=form-group
+                    label for=tickerSymbole boursier label
+                    input type=text id=ticker placeholder=Ex AAPL, MSFT value=MSFT
+                div
+                
+                div class=form-group
+                    labelScénario label
+                    div class=scenario-buttons
+                        button class=btn-scenario active data-scenario=optimisteOptimistebutton
+                        button class=btn-scenario data-scenario=baseBasebutton
+                        button class=btn-scenario data-scenario=pessimistePessimistebutton
+                    div
+                div
+                
+                div class=form-group
+                    label for=custom-waccWACC personnalisé label
+                    input type=range id=custom-wacc min=1 max=20 value=8 step=0.5
+                    span id=wacc-value8.0%span
+                div
+                
+                div class=form-group
+                    label for=custom-growthCroissance terminale label
+                    input type=range id=custom-growth min=0.5 max=10 value=3 step=0.5
+                    span id=growth-value3.0%span
+                div
+                
+                button id=analyze-btn class=btn-primary
+                    i class=fas fa-calculatori Lancer l'analyse
+                button
+            div
+        section
+
+        section class=results-section
+            div class=card
+                h2i class=fas fa-file-alti Résultatsh2
+                div id=loading class=loading
+                    div class=spinnerdiv
+                    pAnalyse en cours...p
+                div
+                div id=results-content class=hidden
+                    div class=result-header
+                        h3 id=company-nameMicrosoft Corporation (MSFT)h3
+                        div class=price-comparison
+                            div
+                                spanPrix actuel span
+                                strong id=current-price$325.35strong
+                            div
+                            div
+                                spanValeur intrinsèque span
+                                strong id=intrinsic-value$350.20strong
+                            div
+                            div
+                                spanMarge de sécurité span
+                                strong id=margin-of-safety+7.6%strong
+                            div
+                        div
+                    div
+                    
+                    div class=result-grid
+                        div class=result-card
+                            h4i class=fas fa-project-diagrami Projections DCFh4
+                            canvas id=dcf-chartcanvas
+                        div
+                        
+                        div class=result-card
+                            h4i class=fas fa-info-circlei Données financièresh4
+                            table id=financial-data
+                                tr
+                                    tdEBIT (M$)td
+                                    td id=ebit83,383td
+                                tr
+                                tr
+                                    tdFlux de trésorerie (M$)td
+                                    td id=cfo76,555td
+                                tr
+                                tr
+                                    tdDette totale (M$)td
+                                    td id=total-debt59,578td
+                                tr
+                                tr
+                                    tdTrésorerie (M$)td
+                                    td id=cash34,700td
+                                tr
+                            table
+                        div
+                        
+                        div class=result-card
+                            h4i class=fas fa-calculatori Hypothèsesh4
+                            table id=assumptions
+                                tr
+                                    tdWACCtd
+                                    td id=wacc8.0%td
+                                tr
+                                tr
+                                    tdCroissance terminaletd
+                                    td id=terminal-growth3.0%td
+                                tr
+                                tr
+                                    tdAnnées de projectiontd
+                                    td id=projection-years7td
+                                tr
+                            table
+                        div
+                    div
+                    
+                    div class=scenario-comparison
+                        h4i class=fas fa-balance-scalei Comparaison des scénariosh4
+                        table
+                            thead
+                                tr
+                                    thScénarioth
+                                    thValeur intrinsèqueth
+                                    thMarge de sécuritéth
+                                    thWACCth
+                                    thCroissanceth
+                                tr
+                            thead
+                            tbody id=scenario-comparison
+                                !-- Rempli dynamiquement --
+                            tbody
+                        table
+                    div
+                div
+            div
+        section
+    main
+
+    footer class=finance-footer
+        div class=container
+            p© 2023 DCF Analyzer Pro  Outil professionnel de valorisationp
+            p class=disclaimer
+                i class=fas fa-exclamation-trianglei Ceci est un outil éducatif seulement. 
+                Ne constitue pas un conseil en investissement.
+            p
+        div
+    footer
+
+    script src=script.jsscript
+body
+html
